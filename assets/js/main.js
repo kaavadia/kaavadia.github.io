@@ -2,13 +2,6 @@
 	Lens by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-
-I have done two things on this: 
-1. Removed toggle using toggle.hide() on line number 166/167 area
-2. Create _.hide() on line 283/284 to remove the side bar. Once you have the thumbnails in place, you can get back on it. Right not it is distracting.
-
-
-
 */
 
 var main = (function($) { var _ = {
@@ -20,7 +13,7 @@ var main = (function($) { var _ = {
 	settings: {
 
 		// Preload all images.
-			preload: true,
+			preload: false,
 
 		// Slide duration (must match "duration.slide" in _vars.scss).
 			slideDuration: 500,
@@ -174,7 +167,7 @@ var main = (function($) { var _ = {
 			$('<div class="toggle"></div>')
 				.appendTo(_.$main);
 
-			_.$toggle = $('.toggle').hide();
+			_.$toggle = $('.toggle');
 
 		// IE<9: Fix viewer width (no calc support).
 			if (skel.vars.IEVersion < 9)
@@ -279,8 +272,7 @@ var main = (function($) { var _ = {
 					});
 
 		// Main.
-		// By Defaul the side bar is hidden
-			_.hide();
+
 			// Touch gestures.
 				_.$main
 					.on('touchstart', function(event) {
@@ -346,8 +338,7 @@ var main = (function($) { var _ = {
 					});
 		// Toggle.
 			_.$toggle.on('click', function() {
-				 _.toggle();
-
+				_.toggle();
 			});
 
 			// Prevent event from bubbling up to "hide event on tap" event.
